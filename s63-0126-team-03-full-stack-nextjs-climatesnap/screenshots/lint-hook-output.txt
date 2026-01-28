@@ -1,0 +1,35 @@
+﻿git : husky - DEPRECATED
+At C:\Users\ishu6\AppData\Local\Temp\azad-run\configure-repo-local-git-identity-and-re-Lp61_.ps1:25 char:2
++ (git commit -m "test: lint hook check" 2>&1) | Tee-Object -FilePath $ ...
++  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (husky - DEPRECATED:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Please remove the following two lines from .husky/pre-commit:
+
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+They WILL FAIL in v10.0.0
+
+[33m[STARTED][39m Backing up original state...
+[32m[COMPLETED][39m Backed up original state in git stash (09c3e25)
+[33m[STARTED][39m Running tasks for staged files...
+[33m[STARTED][39m package.json[0;90m ΓÇö 1 file[0m
+[33m[STARTED][39m *.{ts,tsx,js,jsx}[0;90m ΓÇö 1 file[0m
+[33m[STARTED][39m eslint --fix
+[32m[COMPLETED][39m eslint --fix
+[33m[STARTED][39m prettier --write
+[32m[COMPLETED][39m prettier --write
+[32m[COMPLETED][39m *.{ts,tsx,js,jsx}[0;90m ΓÇö 1 file[0m
+[32m[COMPLETED][39m package.json[0;90m ΓÇö 1 file[0m
+[32m[COMPLETED][39m Running tasks for staged files...
+[33m[STARTED][39m Applying modifications from tasks...
+[32m[COMPLETED][39m Applying modifications from tasks...
+[33m[STARTED][39m Cleaning up temporary files...
+[32m[COMPLETED][39m Cleaning up temporary files...
+[feature/sprint1-typescript-eslint-vishu 6bfdd9c] test: lint hook check
+ 1 file changed, 4 insertions(+)
+ create mode 100644 s63-0126-team-03-full-stack-nextjs-climatesnap/src/components/bad.js
+
