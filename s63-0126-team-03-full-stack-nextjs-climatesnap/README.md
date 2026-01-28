@@ -1,0 +1,47 @@
+🌍 ClimateSnap – Climate Data Visualization Dashboard
+ClimateSnap is a simple full‑stack web application built with Next.js (TypeScript) that visualizes basic climate data such as temperature, air quality, and rainfall for different cities.
+The goal of this project is to build a clean, scalable foundation that will be extended in future sprints.
+
+🚀 Tech Stack
+Frontend: Next.js (App Router)
+
+Language: TypeScript
+
+Backend: Next.js API Routes
+
+Styling: Default (can be extended later)
+
+Package Manager: npm
+
+📁 Folder Structure
+src/
+ ├── app/          # Application routes and pages (App Router)
+ ├── components/   # Reusable UI components
+ ├── lib/          # Utility functions, helpers, configurations
+public/
+ ├── screenshot.png # Screenshot of the app running locally
+📌 Folder Purpose
+app/ → Handles routing and page-level components
+
+components/ → Shared and reusable UI components
+
+lib/ → Common utilities and helper logic
+
+public/ → Static assets like images and screenshots
+
+This structure keeps the code modular, readable, and scalable.
+
+⚙️ Setup Instructions
+1️⃣ Clone the repository
+git clone <repository-url>
+cd <repository-name>
+2️⃣ Install dependencies
+npm install
+3️⃣ Run the development server
+npm run dev
+Open 👉 http://localhost:3000 in your browser.
+
+📸 Screenshot
+Below is the application running locally:
+
+
