@@ -1,4 +1,23 @@
 🌍 ClimateSnap – Climate Data Visualization Dashboard
+
+
+## 🔍 Code Quality & Consistency (Sprint‑1)
+
+Strict TypeScript prevents runtime bugs by enforcing strong typing and removing unused code.
+
+ESLint enforces best practices and avoids common mistakes.
+
+Prettier ensures consistent formatting across the team.
+
+Pre‑commit hooks stop bad code from entering the repository.
+
+This setup ensures a clean, maintainable, and professional codebase for future sprints.
+
+### 📸 / 🧾 Hook run proof
+
+The captured terminal output from a Husky + lint-staged run is saved at:
+
+- `screenshots/lint-hook-output.txt`
 ClimateSnap is a simple full‑stack web application built with Next.js (TypeScript) that visualizes basic climate data such as temperature, air quality, and rainfall for different cities.
 The goal of this project is to build a clean, scalable foundation that will be extended in future sprints.
 
