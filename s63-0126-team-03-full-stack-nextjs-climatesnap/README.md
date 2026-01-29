@@ -95,3 +95,76 @@ This workflow ensures:
 - Better collaboration and accountability
 - Clean commit history
 - Faster and safer development at scale
+
+---
+
+## 🐳 Docker & Docker Compose (Local Development)
+
+This project includes a beginner-friendly, production-style Docker setup to run the full stack locally:
+
+- **app** → Next.js application
+- **db** → PostgreSQL
+- **redis** → Redis
+
+### ✅ Purpose of the Dockerfile
+
+The `Dockerfile` defines how the Next.js app is built and started inside a container:
+
+- Uses **Node.js 20 (Alpine)**
+- Installs dependencies
+- Runs `npm run build`
+- Starts the app with `npm run start`
+
+### ✅ docker-compose services
+
+`docker-compose.yml` runs three containers on one shared bridge network:
+
+- `app` (Next.js) exposed on **http://localhost:3000**
+- `db` (PostgreSQL) exposed on **localhost:5432**
+- `redis` (Redis) exposed on **localhost:6379**
+
+### 🌐 Networks and Volumes
+
+- **Network:** `localnet` (bridge) so services can reach each other by service name (`db`, `redis`).
+- **Volume:** `db_data` persists Postgres data across restarts.
+
+### 🔐 Environment variables
+
+The app container receives the following env vars (configured in `docker-compose.yml`):
+
+- `DATABASE_URL=postgres://postgres:password@db:5432/mydb`
+- `REDIS_URL=redis://redis:6379`
+
+### ▶️ Build + Run + Verify
+
+Run everything (from the app folder):
+
+```bash
+docker-compose up --build
+```
+
+Verify containers are running:
+
+```bash
+docker ps
+```
+
+Then check:
+
+- App: http://localhost:3000
+- Postgres: localhost:5432
+- Redis: localhost:6379
+
+### 💡 Why Docker helps ("works on my machine")
+
+Docker standardizes the runtime (Node version + dependencies) and guarantees every team member runs the same stack locally with one command.
+
+### 🧯 Common issues + quick fixes
+
+- **Port conflicts (3000/5432/6379 already used):** stop the other service or change the left-hand port mapping in `docker-compose.yml`.
+- **Slow first build:** the first build downloads dependencies; later builds are faster due to Docker layer caching.
+- **Build errors after dependency changes:** rebuild cleanly with:
+
+  ```bash
+  docker-compose up --build --force-recreate
+  ```
