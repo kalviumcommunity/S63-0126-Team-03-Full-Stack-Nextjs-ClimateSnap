@@ -64,3 +64,34 @@ Open 👉 http://localhost:3000 in your browser.
 Below is the application running locally:
 
 
+## 🔁 GitHub Workflow & Code Review Process
+
+### 🌿 Branching Strategy
+We follow a structured branching strategy:
+- `feature/*` → new features
+- `fix/*` → bug fixes
+- `chore/*` → maintenance tasks
+- `docs/*` → documentation updates
+
+The `main` branch is protected and always contains stable code.
+
+---
+
+### 🔍 Code Review Checklist
+Every Pull Request is reviewed against the following:
+- Code follows agreed naming conventions
+- Functionality works as expected locally
+- No console errors or warnings
+- ESLint and Prettier checks pass
+- Code is readable and well-documented
+- No secrets or sensitive data are exposed
+
+---
+
+### 🧠 Why This Workflow?
+This workflow ensures:
+- High code quality
+- Safe and review-based merges
+- Better collaboration and accountability
+- Clean commit history
+- Faster and safer development at scale
