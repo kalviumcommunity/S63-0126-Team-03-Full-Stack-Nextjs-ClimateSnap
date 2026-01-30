@@ -225,3 +225,73 @@ reducing runtime errors and improving developer productivity.
 ### Verification
 - Prisma client generated successfully
 - Test query executed without errors
+
+---
+
+## 🗄️ Database Migrations & Seed Scripts (Prisma)
+
+This project uses **Prisma Migrate** to keep the PostgreSQL schema reproducible across the team, and a **seed script** to load consistent starter data.
+
+### Prerequisites
+
+1) Ensure Postgres is running locally.
+
+If you use the provided Docker Compose setup, start the DB from the app folder:
+
+```bash
+cd s63-0126-team-03-full-stack-nextjs-climatesnap
+docker compose up -d db
+```
+
+2) Ensure `DATABASE_URL` is set for Prisma (host machine).
+
+If Postgres is exposed on localhost:5432 (default in `docker-compose.yml`), a typical value is:
+
+```bash
+DATABASE_URL=postgresql://postgres:password@localhost:5432/mydb
+```
+
+### Create & Apply Migrations
+
+Create/apply the initial migration (or future schema changes):
+
+```bash
+npx prisma migrate dev --name init_schema
+```
+
+### Rollback / Reset (Development Only)
+
+To drop the DB, re-apply all migrations, and re-run seed data:
+
+```bash
+npx prisma migrate reset
+```
+
+⚠️ **Warning:** `migrate reset` is destructive. Use only for local/dev environments.
+
+### Seed the Database (Idempotent)
+
+Seed data lives in `prisma/seed.ts` and is written to be safe to re-run (it uses upserts + existence checks).
+
+Run:
+
+```bash
+npx prisma db seed
+```
+
+### Verify Seed Data
+
+Open Prisma Studio:
+
+```bash
+npx prisma studio
+```
+
+### Production Safety Reflection
+
+For production environments, avoid destructive commands like `migrate reset`. Instead:
+
+- Apply schema changes with `prisma migrate deploy`
+- Run migrations first in staging
+- Take DB backups before applying migrations
+- Prefer additive migrations (new columns/tables) and test data migrations carefully
