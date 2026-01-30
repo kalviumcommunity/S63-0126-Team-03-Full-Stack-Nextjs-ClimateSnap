@@ -168,3 +168,34 @@ Docker standardizes the runtime (Node version + dependencies) and guarantees eve
   ```bash
   docker-compose up --build --force-recreate
   ```
+
+
+## 🗄️ PostgreSQL Schema Design (Sprint‑1)
+
+### Entities
+- User: represents system users/admins
+- City: represents a city
+- ClimateData: stores climate readings per city
+
+### Relationships
+- One User → Many ClimateData
+- One City → Many ClimateData
+
+### Keys & Constraints
+- Primary keys on all tables
+- Foreign keys with ON DELETE CASCADE
+- Unique constraint on User.email
+- Composite unique constraint on City (name + state)
+- Indexes on cityId and recordedAt for faster queries
+
+### Normalization
+The schema follows 3NF:
+- No duplicate city data
+- Climate records reference city and user via foreign keys
+- No redundant attributes
+
+### Scalability
+This design supports:
+- Time‑based climate queries
+- City‑wise aggregations
+- Role‑based data ownership
