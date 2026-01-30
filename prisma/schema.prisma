@@ -51,3 +51,16 @@ enum Role {
   USER
   ADMIN
 }
+model ClimateData {
+  id          Int      @id @default(autoincrement())
+  temperature Float
+  rainfall    Float
+  airQuality  Int
+  recordedAt  DateTime @default(now())
+
+  cityId Int
+  userId Int
+
+  @@index([cityId])
+  @@index([recordedAt])
+}

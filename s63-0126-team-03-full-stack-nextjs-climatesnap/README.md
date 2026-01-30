@@ -295,3 +295,35 @@ For production environments, avoid destructive commands like `migrate reset`. In
 - Run migrations first in staging
 - Take DB backups before applying migrations
 - Prefer additive migrations (new columns/tables) and test data migrations carefully
+
+
+## ⚡ Transactions & Query Optimisation (Sprint‑1)
+
+### Transactions
+Used Prisma `$transaction()` to ensure multiple dependent
+database operations execute atomically.
+
+### Rollbacks
+Transactions are wrapped in try-catch blocks.
+On failure, Prisma automatically rolls back changes.
+
+### Query Optimisation
+- Avoided over-fetching using `select`
+- Used batch inserts with `createMany`
+- Implemented pagination with `skip` and `take`
+
+### Indexes
+- Index on `cityId` for faster filtering
+- Index on `recordedAt` for time-based queries
+
+### Performance
+Query logs compared before and after indexing
+showed improved execution times.
+
+### Anti-patterns Avoided
+- N+1 queries
+- Full table scans
+
+### Production Monitoring
+Query logs, database monitoring, and alerts
+would be used in production environments.
