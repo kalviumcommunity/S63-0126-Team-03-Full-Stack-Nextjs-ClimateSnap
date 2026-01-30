@@ -199,3 +199,29 @@ This design supports:
 - Time‑based climate queries
 - City‑wise aggregations
 - Role‑based data ownership
+
+## 🧬 Prisma ORM Setup (Sprint‑1)
+
+### Why Prisma?
+Prisma ORM provides a type‑safe and reliable way to interact with PostgreSQL,
+reducing runtime errors and improving developer productivity.
+
+### Setup Steps
+- Installed Prisma and initialized configuration
+- Defined database models in `schema.prisma`
+- Generated Prisma Client
+- Initialized a single Prisma client instance for Next.js
+
+### Key Files
+- `prisma/schema.prisma` → database schema
+- `src/lib/prisma.ts` → Prisma client initialization
+
+### Benefits
+- Type‑safe queries
+- Auto‑generated client
+- Better developer experience
+- Consistent database access across the app
+
+### Verification
+- Prisma client generated successfully
+- Test query executed without errors
