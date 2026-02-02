@@ -327,3 +327,29 @@ showed improved execution times.
 ### Production Monitoring
 Query logs, database monitoring, and alerts
 would be used in production environments.
+
+
+## 🔌 API Route Structure & Naming
+
+### Route Hierarchy
+- /api/users
+- /api/users/[id]
+- /api/cities
+- /api/climate-data
+
+### REST Conventions
+- Resource-based naming (plural nouns)
+- HTTP verbs define actions
+- Consistent lowercase paths
+
+### Pagination
+- Implemented using `page` and `limit` query parameters
+
+### Error Handling
+- Proper HTTP status codes
+- Clear error messages
+
+### Benefits
+- Predictable endpoints
+- Easy team collaboration
+- Reduced integration errors
