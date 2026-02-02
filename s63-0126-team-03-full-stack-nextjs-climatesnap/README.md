@@ -341,3 +341,30 @@ All API endpoints return responses in a consistent structure:
   "data": {},
   "timestamp": "2026-02-02T10:00:00Z"
 }
+
+## ✅ Input Validation with Zod
+
+### Why Zod?
+Zod ensures all incoming API data is validated before processing,
+preventing invalid or malformed data from reaching the database.
+
+### Schema Definition
+- Centralized schemas in `src/lib/schemas/`
+- Strong TypeScript inference using `z.infer`
+
+### API Validation Flow
+- Request body parsed
+- Validated using Zod schema
+- Clear field-level errors returned on failure
+
+### Example – Success Response
+```json
+{
+  "success": true,
+  "message": "User created successfully",
+  "data": {
+    "name": "Alice",
+    "email": "alice@example.com",
+    "age": 22
+  }
+}
