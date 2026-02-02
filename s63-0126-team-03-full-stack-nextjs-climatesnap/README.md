@@ -390,3 +390,25 @@ preventing invalid or malformed data from reaching the database.
 
 ### Sample Responses
 (Screenshots / JSON examples)
+
+## 🔐 Authorization & RBAC Middleware
+
+### Middleware Flow
+Request → JWT Check → Role Validation → Route Access
+
+### Roles
+- USER: Access to /api/users
+- ADMIN: Access to /api/users + /api/admin
+
+### Least Privilege
+Users only access routes required for their role, reducing security risk.
+
+### Extensibility
+New roles (editor, moderator) can be added by:
+- Extending Role enum
+- Adding role checks in middleware
+
+### Security Risks Without Middleware
+- Unauthorized data access
+- Privilege escalation
+- Broken access control vulnerabilities
