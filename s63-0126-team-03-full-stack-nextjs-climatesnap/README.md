@@ -368,3 +368,25 @@ preventing invalid or malformed data from reaching the database.
     "age": 22
   }
 }
+
+## 🔐 Authentication APIs
+
+### Signup Flow
+- Accepts name, email, password
+- Password hashed using bcrypt (salt rounds: 10)
+- Stores only hashed password
+
+### Login Flow
+- Verifies credentials
+- Issues JWT (1h expiry)
+
+### Protected Routes
+- Token verified via Authorization header (Bearer token)
+
+### Security Notes
+- Passwords never stored in plain text
+- JWT expiry limits session lifetime
+- Tokens can be stored in httpOnly cookies (future) or memory
+
+### Sample Responses
+(Screenshots / JSON examples)
