@@ -550,4 +550,119 @@ Reusable input component
 
 Type-safe schema validation
 
-Improved accessibility and user experience
+Improved accessibility and user experience.
+
+📝 Form Handling & Validation
+Overview
+This module implements reusable and validated forms using React Hook Form for efficient form state management and Zod for schema-based validation.
+This setup ensures type safety, better performance, and consistent validation across the application.
+
+🔧 Tech Stack
+React Hook Form – Lightweight form state management
+
+Zod – Schema-based validation with TypeScript support
+
+@hookform/resolvers – Integration between React Hook Form and Zod
+
+Installation:
+
+npm install react-hook-form zod @hookform/resolvers
+📁 Structure
+src/
+├── app/
+│   ├── signup/page.tsx
+│   ├── contact/page.tsx
+├── components/
+│   └── FormInput.tsx
+├── lib/
+│   └── schemas/
+│       ├── signupSchema.ts
+│       └── contactSchema.ts
+📌 Signup Form
+Validation Schema
+const signupSchema = z.object({
+  name: z.string().min(3, "Name must be at least 3 characters"),
+  email: z.string().email("Invalid email address"),
+  password: z.string().min(6, "Password must be at least 6 characters"),
+});
+Features
+Controlled inputs using React Hook Form
+
+Zod validation via zodResolver
+
+Field-level error messages
+
+Submit loading state (isSubmitting)
+
+♻️ Reusable Input Component
+components/FormInput.tsx
+
+Features:
+
+Reusable across multiple forms
+
+Displays validation errors
+
+Supports different input types
+
+Reduces code duplication
+
+Usage:
+
+<FormInput
+  label="Email"
+  name="email"
+  type="email"
+  register={register}
+  error={errors.email?.message}
+/>
+📬 Contact Form
+A second form was implemented to demonstrate reusability.
+
+Validation rules:
+
+Name: minimum 2 characters
+
+Email: valid format
+
+Message: minimum length requirement
+
+This confirms that the reusable component works across multiple forms.
+
+♿ Accessibility
+All inputs are associated with <label>
+
+Clear validation messages for users
+
+Keyboard-friendly navigation
+
+Optional aria-invalid support for invalid fields
+
+📸 Evidence
+Include screenshots of:
+
+Validation error states
+
+Successful form submission (console or UI alert)
+
+💡 Reflection
+React Hook Form improves performance by minimizing re-renders.
+
+Zod provides type-safe, reusable validation schemas.
+
+Reusable components improve maintainability and consistency.
+
+Separation of UI and validation logic makes the system scalable.
+
+Accessibility considerations improve user experience.
+
+🚀 Outcome
+Functional forms with schema-based validation
+
+Reusable input components
+
+Improved accessibility and user feedback
+
+Scalable and maintainable form architecture.
+
+
