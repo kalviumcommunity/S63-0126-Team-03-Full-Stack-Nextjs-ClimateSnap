@@ -7,6 +7,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model User {
@@ -50,17 +51,4 @@ model ClimateData {
 enum Role {
   USER
   ADMIN
-}
-model ClimateData {
-  id          Int      @id @default(autoincrement())
-  temperature Float
-  rainfall    Float
-  airQuality  Int
-  recordedAt  DateTime @default(now())
-
-  cityId Int
-  userId Int
-
-  @@index([cityId])
-  @@index([recordedAt])
 }
