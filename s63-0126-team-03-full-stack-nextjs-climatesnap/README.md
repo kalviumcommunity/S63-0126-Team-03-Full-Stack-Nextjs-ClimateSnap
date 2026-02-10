@@ -32,23 +32,30 @@ Styling: Default (can be extended later)
 
 Package Manager: npm
 
-📁 Folder Structure
-src/
- ├── app/          # Application routes and pages (App Router)
- ├── components/   # Reusable UI components
- ├── lib/          # Utility functions, helpers, configurations
-public/
- ├── screenshot.png # Screenshot of the app running locally
-📌 Folder Purpose
-app/ → Handles routing and page-level components
+📁 Folder Structure (App Layer)
 
-components/ → Shared and reusable UI components
+`s63-0126-team-03-full-stack-nextjs-climatesnap/`
 
-lib/ → Common utilities and helper logic
+- `src/app/` – App Router pages and API routes  
+  - `/` – ClimateSnap landing page  
+  - `/signup` – signup form (React Hook Form + Zod)  
+  - `/login` – login form (React Hook Form + Zod)  
+  - `/contact` – contact form example  
+  - `/dashboard` – placeholder climate dashboard  
+  - `/api/auth` – auth API stub  
+  - `/api/users` – user‑facing API stub  
+  - `/api/admin` – admin‑only API stub  
+  - `/api/climate` – climate data API stub  
+- `src/components/` – shared UI (`FormInput`)  
+- `src/lib/prisma.ts` – Prisma client for the app  
+- `src/lib/schemas/` – Zod schemas (`signupSchema`, `loginSchema`, `contactSchema`)
 
-public/ → Static assets like images and screenshots
+At the repository root:
 
-This structure keeps the code modular, readable, and scalable.
+- `prisma/` – database schema, migrations, and seed script  
+- `.husky/`, `.eslintrc.json`, `.prettierrc` – tooling & code‑quality config  
+
+This structure keeps the code modular, readable, and ready for the full ClimateSnap feature set.
 
 ⚙️ Setup Instructions
 1️⃣ Clone the repository

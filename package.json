@@ -265,6 +265,7 @@
     "ts-node": "^10.9.2"
   },
   "scripts": {
+    "dev": "npm run dev --prefix s63-0126-team-03-full-stack-nextjs-climatesnap",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install",
     "db:migrate": "prisma migrate dev",
