@@ -341,6 +341,7 @@ All API endpoints return responses in a consistent structure:
   "data": {},
   "timestamp": "2026-02-02T10:00:00Z"
 }
+```
 
 ## ✅ Input Validation with Zod
 
@@ -368,6 +369,7 @@ preventing invalid or malformed data from reaching the database.
     "age": 22
   }
 }
+```
 
 ## 🔐 Authentication APIs
 
@@ -412,3 +414,140 @@ New roles (editor, moderator) can be added by:
 - Unauthorized data access
 - Privilege escalation
 - Broken access control vulnerabilities
+
+📝 Form Handling & Validation (React Hook Form + Zod)
+Overview
+This module implements reusable and validated forms using React Hook Form for efficient state management and Zod for schema‑based validation.
+This approach ensures type safety, better performance, and consistent validation across the application.
+
+🔧 Libraries Used
+Library	Purpose
+React Hook Form	Efficient form state management with minimal re-renders
+Zod	Schema-based validation with TypeScript support
+@hookform/resolvers	Connects Zod with React Hook Form
+Installation:
+
+npm install react-hook-form zod @hookform/resolvers
+📁 Folder Structure
+src/
+├── app/
+│   ├── signup/page.tsx
+│   ├── contact/page.tsx
+├── components/
+│   ├── FormInput.tsx
+├── lib/
+│   ├── schemas/
+│       ├── signupSchema.ts
+│       ├── contactSchema.ts
+📌 Signup Form Implementation
+Validation Schema
+const signupSchema = z.object({
+  name: z.string().min(3, "Name must be at least 3 characters"),
+  email: z.string().email("Invalid email address"),
+  password: z.string().min(6, "Password must be at least 6 characters"),
+});
+Key Features
+Controlled form using React Hook Form
+
+Zod validation via zodResolver
+
+Inline error messages
+
+Submit loading state (isSubmitting)
+
+♻️ Reusable Input Component
+components/FormInput.tsx
+
+Features:
+
+Reusable for multiple forms
+
+Displays validation errors
+
+Supports different input types
+
+Usage:
+
+<FormInput
+  label="Email"
+  name="email"
+  type="email"
+  register={register}
+  error={errors.email?.message}
+/>
+Benefits
+
+Reduces code duplication
+
+Improves maintainability
+
+Consistent UI across forms
+
+📬 Contact Form
+Implemented a second form to demonstrate reusability.
+
+Validation:
+
+Name (min 2 characters)
+
+Email (valid format)
+
+Message (minimum length)
+
+♿ Accessibility Considerations
+All inputs have associated <label>
+
+Clear validation messages for users
+
+Keyboard-friendly form navigation
+
+Supports screen readers
+
+Optional aria-invalid for invalid fields
+
+📸 Evidence
+Include screenshots of:
+
+Validation error messages
+
+Successful form submission (console output or UI alert)
+
+💡 Reflection
+Why React Hook Form?
+
+Minimal re-renders
+
+Better performance
+
+Simple API
+
+Why Zod?
+
+Type-safe validation
+
+Reusable schemas
+
+Consistent rules across client and server
+
+Reusability
+
+Shared validation schemas
+
+Common FormInput component
+
+Easy to add new forms
+
+Maintainability
+
+Clear separation of UI and validation logic
+
+Scalable for future forms
+
+🚀 Outcome
+Functional forms with validation
+
+Reusable input component
+
+Type-safe schema validation
+
+Improved accessibility and user experience
